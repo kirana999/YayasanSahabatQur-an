@@ -1,131 +1,124 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
 body {
+    /* Background hijau gelap dengan pola Islam */
+     /* Hijau gelap */
+    background-image: url('img.jpg');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(90deg, #e2e2e2, #c9d6ff);
+    margin: 0;
 }
 
-.container {
-    position: relative;
-    width: 850px; /* Lebar container tetap 850px */
-    height: 550px; /* Tinggi container tetap 550px */
-    background: #fff;
-    border-radius: 30px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
-    overflow: hidden; /* PENTING untuk efek geser */
-}
-
-/* ===================== SISI KIRI (Side Panel - Hijau) ===================== */
-.side-panel {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50%; /* Menempati 50% sisi kiri */
-    height: 100%;
-    background: #11684c; /* Warna hijau gelap */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #fff;
+.login-container {
+    background-color: #1A473D; /* Hijau gelap untuk form */
     padding: 40px;
-    transition: 0.6s ease-in-out;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    width: 350px;
+    text-align: center;
+    border: 1px solid #C5AA6F; /* Garis emas tipis */
 }
 
-.panel-content {
+.header {
+    margin-bottom: 30px;
+}
+
+.logo-text {
+    color: #C5AA6F;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.logo-image {
+    max-width: 200px; 
+    height: auto; 
+    margin-bottom: 10px;
+}
+
+.organization-name {
+    color: #C5AA6F; 
+    font-size: 20px; 
+    font-weight: normal;
+    margin-top: -12px; 
+    margin-bottom: 10px; 
+}
+
+.login-form {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 15px;
 }
 
-.panel-title {
-    font-size: 36px;
-    margin-bottom: 5px;
-}
-
-.panel-text {
-    font-size: 16px;
+.input-group {
+    position: relative;
     margin-bottom: 20px;
 }
 
-.side-panel .btn {
-    width: 200px; /* Ukuran tombol Register di panel */
-    background: #7494ec; /* Warna biru */
-    border-radius: 25px; /* Sedikit lebih membulat */
-    border: 2px solid #fff; /* Border putih */
+.input-group input {
+    width: 100%;
+    padding: 15px 45px 15px 15px; /* Padding untuk ruang ikon */
+    border: 1px solid #4A8C7B; /* Hijau yang lebih cerah */
+    border-radius: 5px;
+    background-color: #246050; /* Warna input yang lebih gelap */
+    color: white;
+    font-size: 16px;
+    box-sizing: border-box;
 }
 
-/* ===================== FORM BOXES (Login & Registrasi) ===================== */
+.input-group input::placeholder {
+    color: #A9A9A9;
+}
 
-.form-box {
+.input-group .icon {
     position: absolute;
-    top: 0;
-    width: 50%; /* Lebar setiap form 50% */
-    height: 100%;
-    
-    display: flex;
-    flex-direction: column; 
-    justify-content: flex-start;
-    align-items: center;
-    
-    text-align: center;
-    padding: 40px;
-    transition: 0.6s ease-in-out;
-    overflow-y: hidden; /* Default: Scroll non-aktif */
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #C5AA6F; /* Warna emas untuk ikon */
+    pointer-events: none; /* Agar klik bisa menembus ikon */
 }
 
-/* --- Form LOGIN (Sisi Kanan/Putih - Default terlihat) --- */
-.form-box.login {
-    right: 0; /* Awalnya di sisi kanan */
-    background: #fff;
-    color: #333;
-    z-index: 2; /* Di atas Registrasi saat aktif */
+.forgot-password {
+    color: #C5AA6F;
+    text-decoration: none;
+    font-size: 14px;
+    text-align: right;
+    margin-bottom: 30px;
+    display: block; /* Penting agar margin-bottom berfungsi */
 }
 
-/* --- Form REGISTRASI (Awalnya tersembunyi di kanan luar) --- */
-.form-box.register {
-    left: 100%; /* Awalnya geser ke kanan keluar layar */
-    background: #11684c; /* Warna hijau gelap */
-    color: #fff;
-    z-index: 1; /* Di bawah Login saat Login aktif */
-    overflow-y: auto; /* AKTIFKAN SCROLL DI REGISTRASI */
+.forgot-password:hover {
+    text-decoration: underline;
 }
 
-/* ===================== ANIMASI TRANSISI (PENTING) ===================== */
-
-/* Ketika container TIDAK 'active' (yaitu, mode Registrasi aktif) */
-.container:not(.active) .side-panel {
-    left: 100%; /* Panel hijau geser ke kanan keluar layar */
+.login-button {
+    /* Gradient yang menyerupai tombol pada gambar */
+    background: linear-gradient(to bottom, #E8A848, #C5AA6F); 
+    color: #1A473D; /* Teks hijau gelap */
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
-.container:not(.active) .form-box.login {
-    right: -100%; /* Form Login geser ke kanan keluar layar */
-}
-.container:not(.active) .form-box.register {
-    left: 50%; /* Form Registrasi geser dari kanan ke posisi 50% (menutupi sisi kanan) */
+
+.login-button:hover {
+    background: linear-gradient(to top, #E8A848, #C5AA6F);
 }
 
-/* ===================== KOMPONEN UMUM & DETAIL FORM ===================== */
-
-form { width: 100%; height: auto; padding-bottom: 20px; }
-
-.container h1 { font-size: 36px; margin: 0 0 30px; }
-.form-box.login h1 { color: #551a1a; }
-
-.input-box { position: relative; margin: 30px 0; } 
-.input-box input { width: 100%; padding: 13px 20px; background: #eee; border-radius: 8px; border: none; outline: none; font-size: 16px; color: #333; font-weight: 500; }
-.input-box i { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); font-size: 20px; color: #888; }
-.forgot-link { margin: -15px 0 15px; text-align: right; }
-.forgot-link a { font-size: 14.5px; color: #333; text-decoration: none; }
-
-.btn { width: 100%; height: 48px; background: #7494ec; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); border: none; color: #fff; font-size: 16px; font-weight: 500; cursor: pointer; }
+/* Media Queries untuk Responsif (opsional) */
+@media (max-width: 400px) {
+    .login-container {
+        width: 90%;
+        padding: 30px 20px;
+    }
+}
