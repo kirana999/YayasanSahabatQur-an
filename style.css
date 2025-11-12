@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(90deg, #e2e2e2, #c9d6ff);
+}
+
+.container {
+    position: relative;
+    width: 850px; /* Lebar container tetap 850px */
+    height: 550px; /* Tinggi container tetap 550px */
+    background: #fff;
+    border-radius: 30px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden; /* PENTING untuk efek geser */
+}
+
+/* ===================== SISI KIRI (Side Panel - Hijau) ===================== */
+.side-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%; /* Menempati 50% sisi kiri */
+    height: 100%;
+    background: #11684c; /* Warna hijau gelap */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    padding: 40px;
+    transition: 0.6s ease-in-out;
+}
+
+.panel-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.panel-title {
+    font-size: 36px;
+    margin-bottom: 5px;
+}
+
+.panel-text {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.side-panel .btn {
+    width: 200px; /* Ukuran tombol Register di panel */
+    background: #7494ec; /* Warna biru */
+    border-radius: 25px; /* Sedikit lebih membulat */
+    border: 2px solid #fff; /* Border putih */
+}
+
+/* ===================== FORM BOXES (Login & Registrasi) ===================== */
+
+.form-box {
+    position: absolute;
+    top: 0;
+    width: 50%; /* Lebar setiap form 50% */
+    height: 100%;
+    
+    display: flex;
+    flex-direction: column; 
+    justify-content: flex-start;
+    align-items: center;
+    
+    text-align: center;
+    padding: 40px;
+    transition: 0.6s ease-in-out;
+    overflow-y: hidden; /* Default: Scroll non-aktif */
+}
+
+/* --- Form LOGIN (Sisi Kanan/Putih - Default terlihat) --- */
+.form-box.login {
+    right: 0; /* Awalnya di sisi kanan */
+    background: #fff;
+    color: #333;
+    z-index: 2; /* Di atas Registrasi saat aktif */
+}
+
+/* --- Form REGISTRASI (Awalnya tersembunyi di kanan luar) --- */
+.form-box.register {
+    left: 100%; /* Awalnya geser ke kanan keluar layar */
+    background: #11684c; /* Warna hijau gelap */
+    color: #fff;
+    z-index: 1; /* Di bawah Login saat Login aktif */
+    overflow-y: auto; /* AKTIFKAN SCROLL DI REGISTRASI */
+}
+
+/* ===================== ANIMASI TRANSISI (PENTING) ===================== */
+
+/* Ketika container TIDAK 'active' (yaitu, mode Registrasi aktif) */
+.container:not(.active) .side-panel {
+    left: 100%; /* Panel hijau geser ke kanan keluar layar */
+}
+.container:not(.active) .form-box.login {
+    right: -100%; /* Form Login geser ke kanan keluar layar */
+}
+.container:not(.active) .form-box.register {
+    left: 50%; /* Form Registrasi geser dari kanan ke posisi 50% (menutupi sisi kanan) */
+}
+
+/* ===================== KOMPONEN UMUM & DETAIL FORM ===================== */
+
+form { width: 100%; height: auto; padding-bottom: 20px; }
+
+.container h1 { font-size: 36px; margin: 0 0 30px; }
+.form-box.login h1 { color: #551a1a; }
+
+.input-box { position: relative; margin: 30px 0; } 
+.input-box input { width: 100%; padding: 13px 20px; background: #eee; border-radius: 8px; border: none; outline: none; font-size: 16px; color: #333; font-weight: 500; }
+.input-box i { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); font-size: 20px; color: #888; }
+.forgot-link { margin: -15px 0 15px; text-align: right; }
+.forgot-link a { font-size: 14.5px; color: #333; text-decoration: none; }
+
+.btn { width: 100%; height: 48px; background: #7494ec; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); border: none; color: #fff; font-size: 16px; font-weight: 500; cursor: pointer; }
