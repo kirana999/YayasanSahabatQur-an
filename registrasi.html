@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrasi Santri Baru</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    
+    <div class="register-container">
+        
+        <div class="registrasi-header">
+            <h1 class="title">Registrasi Santri Baru</h1>
+            <p class="subtitle">Isi data berikut untuk mendaftar sebagai santriwati Yayasan Sahabat Qur'an</p>
+        </div>
+
+        <form class="registrasi-form">
+            <div class="input-group">
+                <label for="nama_lengkap">Nama Lengkap</label>
+                <input type="text" id="nama_lengkap" placeholder="" required autocomplete="off">
+            </div>
+
+            <div class="two-forms">
+                <div class="input-group half-width">
+                    <label for="tempat_lahir">Tempat Lahir</label>
+                    <input type="text" id="tempat_lahir" placeholder="" required autocomplete="off">
+                </div>
+                
+                <div class="input-group half-width">
+                    <label for="tanggal_lahir">Tanggal Lahir</label>
+                    <input type="text" id="tempat_lahir" placeholder="" required autocomplete="off">
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="nomor_telepon">Nomor Telepon</label>
+                <input type="tel" id="nomor_telepon" placeholder="" required autocomplete="nope">
+            </div>
+
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="" required autocomplete="nope">
+            </div>
+
+            </form>
+            <form class="register-form" id="registrationForm">
+            <div class="checkbox-group">
+                <input type="checkbox" id="syarat_ketentuan" required>
+                <label for="syarat_ketentuan">Saya menyetujui Syarat dan Ketentuan yang berlaku.</label>
+            </div>
+            
+            <button type="submit" class="btn daftar-btn">Daftar</button>
+            
+        </form>
+        <form class="register-form" id="registrationForm" autocomplete="off">
+    </form>
+    </div> 
+    
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('registrationForm');
+
+        if (form) {
+            form.addEventListener('submit', function(event) {
+                // 1. Mencegah pengiriman form secara default
+                event.preventDefault(); 
+                
+                // 2. Lakukan validasi dasar (Pastikan semua required field terisi)
+                if (form.checkValidity()) {
+                    
+                    // 3. Simulasikan pengiriman data berhasil
+                    // Di sini Anda akan memasukkan kode pengiriman data (AJAX/Fetch)
+                    
+                    // 4. Arahkan pengguna ke halaman sukses
+                    // (Menggunakan setTimeout untuk simulasikan sedikit jeda loading)
+                    setTimeout(function() {
+                        window.location.href = 'success.html'; 
+                    }, 500); // Jeda 500ms (setengah detik)
+                    
+                } else {
+                    // Jika validasi HTML gagal (required fields belum terisi)
+                    // Browser akan menampilkan pesan error default
+                }
+            });
+        }
+    });
+</script>
+</html> 
